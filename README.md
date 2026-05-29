@@ -104,42 +104,85 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 
 ### Memory Backends (Swappable)
 
-| System | Best For | Sovereignty |
-|--------|----------|-------------|
-| **Obsidian** | ADHD UX, non-linear thinking, templates, Kanban | Local files + Git |
-| **Notion** | Team collaboration, structured databases | Cloud (Notion Inc), integrations via API |
-| **OneNote** | Microsoft ecosystem, sync across devices | Microsoft cloud |
-| **Letta** | Deep memory architecture, multi-tier (core/short/long) | Self-hosted or local |
-| **Mem0** | Memory management for multi-agent systems | Open source, self-hosted |
-| **OpenBrain** | Cognitive architecture patterns, Nate B Jones framework | Research/custom |
+| System | Best For | Sovereignty | API/Sync | Status |
+|--------|----------|-------------|----------|--------|
+| **Obsidian** | ADHD UX, non-linear thinking, templates, Kanban | Local files + Git | Yes (via plugins) | ✅ Live |
+| **Notion** | Team collaboration, structured databases | Cloud (Notion Inc) | Yes (robust API) | ✅ Alternative |
+| **OneNote** | Microsoft ecosystem, sync across devices | Microsoft cloud | Yes (OneNote API) | ✅ Alternative |
+| **Proton** | Privacy-first, encrypted vault | Self-hosted/hybrid | Limited (in dev) | 🟡 Emerging |
+| **Letta** | Deep memory architecture, multi-tier (core/short/long) | Self-hosted or local | Yes (framework) | 🔄 Phase 2 |
+| **Mem0** | Memory management for multi-agent systems | Open source, self-hosted | Yes (SDK) | 🔄 Phase 2 |
+| **OpenBrain** | Cognitive architecture patterns, Nate B Jones framework | Custom/research | Research | 🔄 Exploring |
 
 **Current:** Obsidian + Git (fully sovereign, battle-tested for ADHD workflow)  
-**Roadmap:** Letta integration for tier-based memory, Mem0 for multi-agent coordination
+**Alternatives:** Notion (cloud + API), OneNote (Microsoft), Proton (privacy-first)  
+**Roadmap:** Letta + Mem0 for tiered memory, multi-backend support
 
 ### Agent Orchestrators (Pluggable)
 
-| System | Architecture | Best For | Status |
-|--------|--------------|----------|--------|
-| **Hermes Agent** | Skill learning, ReAct + self-improvement | Learning from interactions, workflow automation | Live (v0.13.0) |
-| **Thoth** | Local-first desktop app, knowledge graph + tools | Personal sovereignty, integrated tools (shell, vision, voice) | Exploring |
-| **OpenClaw** | [Research phase] | TBD | Exploring |
-| **Custom Agents** | Your own via LangGraph, Letta, or frameworks | Domain-specific assistants | Building |
+| System | Architecture | Best For | API | Status |
+|--------|--------------|----------|-----|--------|
+| **Hermes Agent** | Skill learning, ReAct + self-improvement | Learning, workflow automation, persistent memory | Yes | ✅ Live (v0.13.0) |
+| **Thoth** | Local-first desktop, knowledge graph + tools | Personal sovereignty, integrated tools | Development | 🔄 Phase 2 |
+| **OpenClaw** | [Research phase] | TBD | Research | 🔄 Exploring |
+| **Crew.ai** | Multi-agent orchestration, role-based teams | Complex workflows, agent delegation | Yes (Python) | 🟡 Alternative |
+| **LangChain Agents** | Flexible agent framework, tool integration | Custom agents, RAG patterns | Yes (Python SDK) | 🟡 Alternative |
+| **AutoGPT** | Self-improving agent loops | Goal-oriented autonomy | Yes (Docker) | 🟡 Alternative |
+| **n8n** | No-code workflow automation | Non-technical automation, integrations | Yes (REST + webhook) | 🟡 Alternative (visual) |
+| **Custom Agents** | Your own via LangGraph, Letta, or frameworks | Domain-specific assistants | Custom | Building |
 
 **Current:** Hermes Agent (Discord) + Claude (via MCP)  
-**Roadmap:** Thoth for local orchestration, multi-agent task delegation
+**Alternatives:** Crew.ai (Python multi-agent), LangChain (flexible), n8n (visual/no-code)  
+**Roadmap:** Thoth for local desktop orchestration, multi-agent task delegation
 
 ### AI Backends (Provider-Agnostic)
 
-| Provider | Model | Latency | Sovereignty | Cost |
-|----------|-------|---------|-------------|------|
-| **Anthropic (Claude)** | Claude 3.5 Sonnet | API (~1-2s) | Your API key | ~$0.003/1k tokens |
-| **Local (Ollama)** | Hermes, Llama, Mistral | Instant (GPU/CPU) | Complete (local inference) | Free (your hardware) |
-| **Nous Research** | Hermes 4.3 | API or local | Local option available | Free (open source) |
-| **OpenAI** | GPT-4o | API (~1-2s) | Via API key | Higher cost |
-| **Google** | Gemini | API | Via API key | Competitive |
+| Provider | Model | Latency | Sovereignty | Cost | Notes |
+|----------|-------|---------|-------------|------|-------|
+| **Anthropic (Claude)** | Claude 3.5 Sonnet | API (~1-2s) | Your API key | ~$0.003/1k tokens | ✅ Best for reasoning |
+| **OpenAI (ChatGPT)** | GPT-4o, o1 | API (~1-2s) | Via API key | Higher cost | ✅ Alternative reasoning |
+| **Local (Ollama)** | Hermes, Llama, Mistral | Instant (GPU/CPU) | Complete (local) | Free (your hardware) | ✅ Full sovereignty |
+| **Nous Research** | Hermes 4.3 | API or local | Local available | Free (open source) | ✅ Open-source reasoning |
+| **Google** | Gemini | API (~1-2s) | Via API key | Competitive pricing | ✅ Alternative |
+| **Meta** | Llama 2/3.1 | Local only | Complete (local) | Free (open source) | ✅ Private alternative |
+| **Mistral** | Mistral 7B/Large | Local or API | Local available | Free (local) or paid (API) | ✅ Private alternative |
+| **Together AI** | Various (local mirrors) | API (~1-2s) | Your API key | Competitive | 🟡 Privacy-focused API |
+| **Replicate** | Various (Llama, Mistral) | API (~1-2s) | Your API key | Pay-per-use | 🟡 Easy local model hosting |
 
 **Current:** Claude (Anthropic) + Hermes qwen3.5 (Ollama local)  
-**Philosophy:** Use Claude for complex reasoning, local Hermes for low-latency tasks, fallback to OpenAI if needed
+**Philosophy:** Use Claude for complex reasoning, local Hermes for low-latency, OpenAI as fallback, Llama/Mistral for full privacy  
+**Sovereign Strategy:** Default local (Ollama) → Claude API → OpenAI fallback, with zero telemetry requirement
+
+### Calendar & Time Management (Swappable)
+
+| System | Platform | API | Sovereignty | Reminders | Notes |
+|--------|----------|-----|-------------|-----------|-------|
+| **Google Calendar** | Web/iOS/Android | Yes (CalDAV + REST) | Google cloud | ✅ Rich | ✅ Live |
+| **Apple Calendar** | macOS/iOS | Yes (iCal + CalDAV) | Apple cloud | ✅ Native | ✅ Alternative |
+| **Microsoft Outlook** | Web/Windows/iOS | Yes (CalDAV + Graph API) | Microsoft cloud | ✅ Rich | ✅ Alternative |
+| **Proton Calendar** | Web | Limited (emerging) | Proton (private) | ✅ Basic | 🟡 Privacy-first |
+| **Nextcloud Calendar** | Self-hosted | Yes (CalDAV) | Complete (self-hosted) | ✅ Basic | 🟡 Sovereign |
+| **Thunderbird Calendar** | Local + sync | Yes (CalDAV support) | Local + optional | ✅ Basic | 🟡 Open-source |
+
+**Current:** Google Calendar (proven integrations, rich reminders)  
+**Sovereign alternatives:** Nextcloud (self-hosted), Apple Calendar (device-native), Proton (privacy-first)  
+**Recommendation:** Pair with ADHD-PATTERNS calendar blocking (visible time tracking in daily notes)
+
+### Communication Channels (Multi-Modal)
+
+| Channel | API | Status | Best For | Notes |
+|---------|-----|--------|----------|-------|
+| **Discord** | Yes (bot framework) | ✅ Live | Hermes Agent bot, team collaboration | Rich integrations |
+| **Slack** | Yes (webhook + API) | ✅ Alternative | Team/org workflow, bot integration | Enterprise-friendly |
+| **Signal** | Limited (REST API community) | 🟡 Research | Private messaging, encrypted | Privacy-first but limited API |
+| **Telegram** | Yes (Bot API) | ✅ Alternative | Bot integration, simpler than Discord | Good for casual users |
+| **SMS** | Yes (Twilio, MessageBird) | ✅ Alternative | Low-bandwidth reminders | Cost-based (per message) |
+| **Email** | Yes (SMTP/IMAP) | ✅ Fallback | Capture, notifications, archive | Universal but slower |
+| **Matrix/Element** | Yes (REST API) | 🔄 Emerging | Federated, encrypted, open-source | Decentralized alternative |
+
+**Current:** Discord (Hermes bot live, rich ecosystem)  
+**Alternatives:** Slack (team-friendly), Telegram (simple), Signal (private)  
+**Hybrid approach:** Discord primary, SMS for critical reminders, email for archiving
 
 ### Security & Sovereignty Strategy
 
@@ -148,6 +191,7 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 - **API keys, not passwords** — Control which services can access what
 - **Hybrid cloud/local** — Critical paths local (Obsidian, Ollama), integrations to cloud (Claude API) as needed
 - **Version control** — Everything in Git, including agent state (via Letta's `.af` format when adopted)
+- **Provider flexibility** — No vendor lock-in; swap memories, AI, calendars, and comms without rebuilding
 
 ---
 
