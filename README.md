@@ -4,6 +4,12 @@
 
 ---
 
+## ⚠️ **IMPORTANT: Read This First**
+
+**[HEALTH-WARNING.md](HEALTH-WARNING.md)** — ADHD-OS is not a medical device and should not replace professional ADHD care. Please read the health disclaimer before using this system.
+
+---
+
 ## The Problem
 
 Most productivity systems and AI assistants are built for neurotypical brains. They assume:
@@ -228,35 +234,23 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 
 ---
 
-## Setup & Installation
+## Getting Started
 
-### Requirements
+### Prerequisites
 - **Computer:** Mac, Linux, or Windows (WSL2) with 16GB+ RAM
-- **Software:** Git, Docker (optional), Node.js 20+
-- **Time:** 30-60 minutes for basic setup
+- **Software:** Git, Obsidian (free), Node.js 20+ (optional)
+- **Accounts:** Anthropic API key (for Claude, ~$0.003/1K tokens) — optional but recommended
+- **Time:** 45-90 minutes for full setup
 
-### Quick Start
+### Quick Links
 
-```bash
-# Clone this repo
-git clone https://github.com/LegionForge/ADHD-OS
-cd ADHD-OS
+→ **[docs/SETUP.md](docs/SETUP.md)** — Complete step-by-step installation guide
 
-# Install Obsidian (or bring your own vault)
-# Download from https://obsidian.md
+→ **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — Technical deep-dive on how all the pieces work
 
-# Install Ollama (for local inference)
-# Download from https://ollama.ai
+→ **[HEALTH-WARNING.md](HEALTH-WARNING.md)** — Important disclaimer (read first!)
 
-# Set up Claude MCP
-# See docs/claude-mcp-setup.md
-
-# Optional: Set up Hermes Agent
-# See docs/hermes-agent-setup.md
-```
-
-### Full Setup Guide
-→ See [`docs/SETUP.md`](docs/SETUP.md)
+→ **[LICENSE](LICENSE)** — MIT license + comprehensive health/liability waiver
 
 ---
 
