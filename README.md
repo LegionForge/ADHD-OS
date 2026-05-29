@@ -249,21 +249,30 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 
 ## Roadmap & Exploration
 
-### Phase 1 (Current ✅)
+### Phase 1 (Current ✅) — Validated and Live
+
+**Primary Development Platform:**
 - [x] Obsidian capture + Kanban + templates
 - [x] Claude MCP integration (vault read/write)
 - [x] Git auto-commit + backup
-- [x] Thoth agent (live, local-first desktop orchestrator)
+- [x] **Thoth agent** (VALIDATED LIVE, local-first desktop orchestrator) — Current primary
 - [x] Calendar integration
 - [x] Fast inference options (OpenRouter, InceptionLabs, Cerebras for real-time)
 
+> **Note:** Phase 1 validation focuses on Thoth as the proven agent orchestrator. Hermes has NOT been validated in Phase 1 and is secondary.
+
 ### Phase 2 (In Progress 🟢)
-- [x] **Thoth** — Local-first desktop orchestrator with knowledge graph memory (Live)
+
+**Thoth (Primary — Already Live):**
+- [x] **Thoth** — Local-first desktop orchestrator with knowledge graph memory (Live, validated)
   - [x] Multi-model support (Claude, Hermes, fast providers)
   - [x] Tool integrations (shell, browser automation, vision)
   - [x] Personal knowledge graph for memory
+
+**Hermes Agent (Secondary — In Recovery):**
 - [ ] **Hermes Agent Recovery** — Rebuilding memories post-docker-reset
   - [ ] Reinstate Hermes with memory persistence
+  - [ ] Validate Hermes in Phase 2
   - [ ] Coordinate with Thoth for multi-agent workflows
 - [ ] **Letta Framework** — Tiered memory architecture
   - [ ] Core memory (personality, constants)
