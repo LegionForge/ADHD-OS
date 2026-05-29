@@ -93,10 +93,16 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 - **Why:** Reminders, scheduled reviews, explicit due dates bridge intention and action
 - **ADHD benefit:** The calendar is the external clock. Compensates for time blindness and perception distortion
 
-### 5. **Hermes Agent (Discord Bot)** — Background Intelligence
-- **Why:** Autonomous agent running on separate hardware (Dylan's Mac Mini) with persistent memory
-- **ADHD benefit:** "Set it and forget it" intelligence working in background without requiring conscious initiation
-- **Current:** v0.13.0 live on Discord, ~103s response latency, running locally via Ollama (qwen3.5)
+### 5. **Thoth** — Local-First Desktop Agent
+- **Why:** Desktop orchestrator with knowledge graph, tool integration (shell, vision, voice, browser), and persistent memory
+- **ADHD benefit:** Full-featured local agent with integrated tools, no external dependency
+- **Current:** Live and running, primary agent orchestrator
+
+### 6. **Hermes Agent (Phase 2 - Recovering)**
+- **Why:** Autonomous agent with skill learning and persistent memory
+- **Status:** Currently rebuilding after docker reset (lost memories, no backups)
+- **Plan:** Reinstate with Thoth coordination once memories are restored
+- **ADHD benefit:** "Set it and forget it" background intelligence, learns and improves
 
 ---
 
@@ -122,8 +128,8 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 
 | System | Architecture | Best For | API | Status |
 |--------|--------------|----------|-----|--------|
-| **Hermes Agent** | Skill learning, ReAct + self-improvement | Learning, workflow automation, persistent memory | Yes | ✅ Live (v0.13.0) |
-| **Thoth** | Local-first desktop, knowledge graph + tools | Personal sovereignty, integrated tools | Development | 🔄 Phase 2 |
+| **Thoth** | Local-first desktop, knowledge graph + tools | Personal sovereignty, integrated tools (shell, vision, voice, browser) | Development | ✅ **Live** (primary) |
+| **Hermes Agent** | Skill learning, ReAct + self-improvement | Learning, workflow automation, persistent memory | Yes | 🔄 Phase 2 (recovering) |
 | **OpenClaw** | [Research phase] | TBD | Research | 🔄 Exploring |
 | **Crew.ai** | Multi-agent orchestration, role-based teams | Complex workflows, agent delegation | Yes (Python) | 🟡 Alternative |
 | **LangChain Agents** | Flexible agent framework, tool integration | Custom agents, RAG patterns | Yes (Python SDK) | 🟡 Alternative |
@@ -131,27 +137,32 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 | **n8n** | No-code workflow automation | Non-technical automation, integrations | Yes (REST + webhook) | 🟡 Alternative (visual) |
 | **Custom Agents** | Your own via LangGraph, Letta, or frameworks | Domain-specific assistants | Custom | Building |
 
-**Current:** Hermes Agent (Discord) + Claude (via MCP)  
+**Current:** Thoth (local desktop orchestrator, live) + Claude (via MCP)  
+**Recovering:** Hermes Agent (Phase 2 - rebuilding memories post-docker-wipe)  
 **Alternatives:** Crew.ai (Python multi-agent), LangChain (flexible), n8n (visual/no-code)  
-**Roadmap:** Thoth for local desktop orchestration, multi-agent task delegation
+**Roadmap:** Multi-agent coordination (Thoth + Hermes when ready), OpenClaw exploration
 
 ### AI Backends (Provider-Agnostic)
 
 | Provider | Model | Latency | Sovereignty | Cost | Notes |
 |----------|-------|---------|-------------|------|-------|
-| **Anthropic (Claude)** | Claude 3.5 Sonnet | API (~1-2s) | Your API key | ~$0.003/1k tokens | ✅ Best for reasoning |
+| **Anthropic (Claude)** | Claude 3.5 Sonnet | API (~1-2s) | Your API key | ~$0.003/1k tokens | ✅ Best reasoning |
+| **OpenRouter** | 150+ models (Claude, GPT, Llama, etc.) | API (~0.5-1.5s) | Your API key | Highly competitive | ⭐ Super fast aggregator |
+| **InceptionLabs** | Various | API (~0.3-0.8s) | Your API key | Competitive | ⭐ Lightning fast inference |
+| **Cerebras** | Llama variants, custom | API (~0.2-0.5s) | Your API key | Fastest pricing | ⭐ Fastest on market |
 | **OpenAI (ChatGPT)** | GPT-4o, o1 | API (~1-2s) | Via API key | Higher cost | ✅ Alternative reasoning |
 | **Local (Ollama)** | Hermes, Llama, Mistral | Instant (GPU/CPU) | Complete (local) | Free (your hardware) | ✅ Full sovereignty |
 | **Nous Research** | Hermes 4.3 | API or local | Local available | Free (open source) | ✅ Open-source reasoning |
-| **Google** | Gemini | API (~1-2s) | Via API key | Competitive pricing | ✅ Alternative |
+| **Google** | Gemini | API (~1-2s) | Via API key | Competitive | ✅ Alternative |
 | **Meta** | Llama 2/3.1 | Local only | Complete (local) | Free (open source) | ✅ Private alternative |
 | **Mistral** | Mistral 7B/Large | Local or API | Local available | Free (local) or paid (API) | ✅ Private alternative |
 | **Together AI** | Various (local mirrors) | API (~1-2s) | Your API key | Competitive | 🟡 Privacy-focused API |
-| **Replicate** | Various (Llama, Mistral) | API (~1-2s) | Your API key | Pay-per-use | 🟡 Easy local model hosting |
+| **Replicate** | Various (Llama, Mistral) | API (~1-2s) | Your API key | Pay-per-use | 🟡 Easy model hosting |
 
 **Current:** Claude (Anthropic) + Hermes qwen3.5 (Ollama local)  
-**Philosophy:** Use Claude for complex reasoning, local Hermes for low-latency, OpenAI as fallback, Llama/Mistral for full privacy  
-**Sovereign Strategy:** Default local (Ollama) → Claude API → OpenAI fallback, with zero telemetry requirement
+**Fast Providers:** OpenRouter (0.5-1.5s), InceptionLabs (0.3-0.8s), Cerebras (0.2-0.5s) — exceptional for real-time ADHD interactions  
+**Philosophy:** Use Claude for complex reasoning, fast providers for high-volume tasks, local for sovereignty  
+**Sovereign Strategy:** Default local (Ollama) → Claude API → Cerebras/InceptionLabs (speed) → fallback, with zero telemetry requirement
 
 ### Calendar & Time Management (Swappable)
 
@@ -242,14 +253,18 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 - [x] Obsidian capture + Kanban + templates
 - [x] Claude MCP integration (vault read/write)
 - [x] Git auto-commit + backup
-- [x] Hermes Agent (Discord bot, local inference)
+- [x] Thoth agent (live, local-first desktop orchestrator)
 - [x] Calendar integration
+- [x] Fast inference options (OpenRouter, InceptionLabs, Cerebras for real-time)
 
 ### Phase 2 (In Progress 🟢)
-- [ ] **Thoth Integration** — Local-first desktop orchestrator with knowledge graph memory
-  - [ ] Multi-model support (Claude, Hermes, others)
-  - [ ] Tool integrations (shell, browser automation, vision)
-  - [ ] Personal knowledge graph as alternative memory backend
+- [x] **Thoth** — Local-first desktop orchestrator with knowledge graph memory (Live)
+  - [x] Multi-model support (Claude, Hermes, fast providers)
+  - [x] Tool integrations (shell, browser automation, vision)
+  - [x] Personal knowledge graph for memory
+- [ ] **Hermes Agent Recovery** — Rebuilding memories post-docker-reset
+  - [ ] Reinstate Hermes with memory persistence
+  - [ ] Coordinate with Thoth for multi-agent workflows
 - [ ] **Letta Framework** — Tiered memory architecture
   - [ ] Core memory (personality, constants)
   - [ ] Short-term (current session context)
