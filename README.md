@@ -286,15 +286,24 @@ The ADHD-OS platform was designed and validated through real-world use. Here's t
 - **Accounts:** Anthropic API key (for Claude, ~$0.003/1K tokens) — optional but recommended
 - **Time:** 45-90 minutes for full setup
 
-### Quick Links
+### Documentation
 
-→ **[docs/SETUP.md](docs/SETUP.md)** — Complete step-by-step installation guide
+**Getting Started:**
+- **[docs/SETUP.md](docs/SETUP.md)** — Installation guide (45-90 min, all platforms)
+- **[docs/ADHD-PATTERNS.md](docs/ADHD-PATTERNS.md)** — 8 real workflows for ADHD brains
 
-→ **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — Technical deep-dive on how all the pieces work
+**Technical:**
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — System architecture, data flow, extensibility
+- **[docs/RESEARCH.md](docs/RESEARCH.md)** — Evidence base (29 sources, neuroscience + AI)
+- **[docs/STACK-EXPANSION.md](docs/STACK-EXPANSION.md)** — Alternatives for every layer (memory, AI, calendar, agents, comms)
 
-→ **[HEALTH-WARNING.md](HEALTH-WARNING.md)** — Important disclaimer (read first!)
+**Advanced:**
+- **[docs/SOVEREIGNTY-GUIDE.md](docs/SOVEREIGNTY-GUIDE.md)** — Complete self-hosted stack (Nextcloud + Ollama + Matrix)
 
-→ **[LICENSE](LICENSE)** — MIT license + comprehensive health/liability waiver
+**Legal:**
+- **[HEALTH-WARNING.md](HEALTH-WARNING.md)** — Health disclaimer (read first!)
+- **[LICENSE](LICENSE)** — MIT license + health/liability waiver
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — Community contribution guidelines
 
 ---
 
@@ -307,6 +316,19 @@ ADHD-OS is built on a few non-negotiable principles:
 3. **Honest about limitations** — This is not a cure. It's not a replacement for medication or therapy. It's infrastructure that works *alongside* those.
 4. **Modular** — You should be able to swap memory backends, AI providers, and orchestrators without rebuilding everything.
 5. **Reliable** — The system should work offline, fail gracefully, and never lose your data.
+
+---
+
+## Community & Discussions
+
+**GitHub Discussions** are open for:
+- **Use Cases** — Share what works for your ADHD brain
+- **Integrations** — Ask about alternatives (Notion, Nextcloud, local models, etc.)
+- **Patterns** — Show custom workflows and agents
+- **Help** — Get setup assistance and troubleshooting
+- **Roadmap** — Discuss Phase 2 priorities and features
+
+**[Open Discussions →](https://github.com/LegionForge/ADHD-OS/discussions)**
 
 ---
 
