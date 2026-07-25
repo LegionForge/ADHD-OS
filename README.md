@@ -2,8 +2,6 @@
 
 > Building an **external executive function system** that adapts to how ADHD brains actually work — frictionless capture, modular memory, multi-agent coordination, complete personal ownership.
 
-💛 [Donate to LegionForge](https://legionforge.org/donations) — LegionForge is open-source and independently maintained.
-
 ---
 
 ## ⚠️ **IMPORTANT: Read This First**
@@ -402,3 +400,8 @@ MIT — See [LICENSE](LICENSE)
 ---
 
 **Built with 💙 by someone with ADHD who got tired of productivity systems designed for someone else's brain.**
+
+---
+
+If you find this project useful, [donations to LegionForge](https://legionforge.org/donations)
+help support ongoing development — entirely optional, never required.
